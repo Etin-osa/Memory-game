@@ -1,0 +1,107 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+  background: #000000da;
+}
+
+.board {
+  width: 470px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.board-inner {
+  width: 470px; 
+	display: flex;
+  flex-wrap: wrap;
+	justify-content: space-evenly;
+  width: 100%;
+  perspective: 600px;
+}
+
+.card {
+  position: relative;
+	height: 90px;
+	width: 100px;
+  margin: .5rem 0;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  transition: transform .4s;
+}
+
+.card div {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.card .front {
+  background: #fff;
+}
+.card .back {
+  transition: backgroundColor 1s;
+  transform: rotateY(-180deg)
+}
+
+.complete {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  text-align: center;
+  padding: 5rem 0;
+  background: #000000a6;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s,
+              pointer-events .6s;
+}
+
+.comp-inner {
+  width: 40%;
+  margin: 6rem auto;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.comp-inner p {
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 3;
+}
+
+.comp-inner button {
+  padding: 1rem 2rem;
+  font-size: 20px;
+  margin: 2rem 0;
+  border: none;
+  border-radius: 2px;
+  background: #d89820;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none
+}
+
+.active {
+  transform: rotateY(180deg)
+}
+
+.no-touch {
+  pointer-events: none;
+}
+
+.no-trans {
+  transition: none;
+}
+
+.disp {
+  opacity: 1;
+  pointer-events: all;
+}
